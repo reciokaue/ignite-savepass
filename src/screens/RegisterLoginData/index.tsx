@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { Alert, KeyboardAvoidingView, Platform } from 'react-native';
+import { Alert, KeyboardAvoidingView, Platform, View, TouchableWithoutFeedback, Keyboard, ScrollView } from 'react-native';
 import { useForm } from 'react-hook-form';
 import { RFValue } from 'react-native-responsive-fontsize';
 import * as Yup from 'yup';
@@ -64,61 +64,70 @@ export function RegisterLoginData() {
     }
     reset()
     navigate('Home')
-    // Save data on AsyncStorage and navigate to 'Home' screen
   }
 
   return (
     <KeyboardAvoidingView
-      style={{ flex: 1 }}
-      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
-      enabled
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      style={{flex: 1}}
     >
-      <Header />
-      <Container>
-        <Form>
-          <Input
-            testID="service-name-input"
-            title="Nome do serviço"
-            name="service_name"
-            error={
-              errors.service_name && errors.service_name.message
-            }
-            control={control}
-            autoCapitalize="sentences"
-            autoCorrect
-          />
-          <Input
-            testID="email-input"
-            title="E-mail"
-            name="email"
-            error={
-              errors.email && errors.email.message
-            }
-            control={control}
-            autoCorrect={false}
-            autoCapitalize="none"
-            keyboardType="email-address"
-          />
-          <Input
-            testID="password-input"
-            title="Senha"
-            name="password"
-            error={
-              errors.password && errors.password.message
-            }
-            control={control}
-            secureTextEntry
-          />
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <><Header back title='Cadastrar nova senha' />
+          <Container>
+          <Form>
+            <Input editing
+              testID="service-name-input"
+              placeholder="Nome do serviço"
+              name="service_name"
+              error={
+                errors.service_name && errors.service_name.message
+              }
+              control={control}
+              autoCapitalize="sentences"
+              autoCorrect
+              />
+            <Input editing
+              testID="email-input"
+              placeholder="E-mail"
+              name="email"
+              error={
+                errors.email && errors.email.message
+              }
+              control={control}
+              autoCorrect={false}
+              autoCapitalize="none"
+              keyboardType="email-address"
+              />
+            <Input editing
+              testID="password-input"
+              placeholder="Senha"
+              name="password"
+              error={
+                errors.password && errors.password.message
+              }
+              control={control}
+              secureTextEntry
+              />
+            <View style={{height: 34}}/>
+            <Input editing
+              testID="about-input"
+              placeholder="Sobre (opcional)"
+              name="about"
+              error={undefined}
+              control={control}
+              multiline
+              numberOfLines={4}
+              style={{textAlignVertical: 'top'}}
+            />
 
-          <Button
-            style={{
-              marginTop: RFValue(8)
-            }}
-            title="Salvar"
-            onPress={handleSubmit(handleRegister)}
-          />
-        </Form>
-      </Container>
+            <Button
+              title="Salvar"
+              backColor='#1967FB'
+              onPress={handleSubmit(handleRegister)}
+            />
+          </Form>
+        </Container></>
+      </TouchableWithoutFeedback>
     </KeyboardAvoidingView>
   )
 }

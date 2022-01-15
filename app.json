@@ -6,6 +6,10 @@
     "assetBundlePatterns": [
       "**/*"
     ],
+    "packagerOpts": {
+      "config": "metro.config.js",
+      "sourceExts": ["js", "jsx", "ts", "tsx", "svg"]
+    },
     "icon": "./assets/images/icon.png",
     "splash": {
       "image": "./assets/images/splash.png",

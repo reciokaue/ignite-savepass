@@ -10,3 +10,11 @@ export const Form = styled.View`
   margin-top: ${RFValue(24)}px;
   padding: 0 ${RFValue(24)}px ${RFValue(35)}px;
 `;
+export const ButtonBox= styled.View`
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+
+  margin-top: ${RFValue(24)}px;
+`;

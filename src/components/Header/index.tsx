@@ -1,85 +1,59 @@
 import React from 'react';
-import { useNavigation } from '@react-navigation/native';
 
+import { useNavigation } from '@react-navigation/native';
+import { Feather } from '@expo/vector-icons';
 
 import {
   Container,
-  AboutUser,
-  Avatar,
-  TextContainer,
-  HelloMessage,
-  BoldText,
-  SecondaryMessage,
-  AddButton,
-  Icon,
-  BackButton,
+  Button,
   Title,
+  Amount,
+  Bold,
+  RightSide,
+  LeftSide,
+  MiddleSide,
+  Box,
+  Row,
 } from './styles';
 
-interface HeaderProps {
-  user?: {
-    name: string;
-    avatar_url: string;
-  }
+import Key from '../../assets/key.svg'
+import { usePassword } from '../../context/passwordContext';
+
+interface Props{
+  title?: string
+  back?: boolean
+  passwordCount?: number
 }
 
-export function Header({ user }: HeaderProps) {
-  const { navigate, goBack } = useNavigation();
+export function Header({title, back = false, passwordCount}: Props) {
+  const { goBack } = useNavigation();
+  const { clearData } = usePassword()
 
   function handleAddPass() {
-    navigate('RegisterLoginData');
+    goBack()
   }
 
   return (
-    <Container
-      hasUserData={!!user}
-      style={{
-        ...(user
-          ? {
-            backgroundColor: '#1967FB'
-          }
-          : {
-            backgroundColor: '#FFFFFF'
-          })
-      }}
-    >
-      {user ? (
-        <>
-          <AboutUser>
-            <Avatar source={{ uri: user.avatar_url }} />
-
-            <TextContainer>
-              <HelloMessage>
-                Olá, <BoldText>{user.name}</BoldText>
-              </HelloMessage>
-
-              <SecondaryMessage>
-                Sinta-se seguro aqui
-              </SecondaryMessage>
-            </TextContainer>
-          </AboutUser>
-
-          <AddButton onPress={handleAddPass}>
-            <Icon
-              name="plus"
-              color="#FFFFFF"
-              size={24}
-            />
-          </AddButton>
-        </>
-      ) : (
-        <>
-          <BackButton onPress={goBack}>
-            <Icon
-              name="chevron-left"
-              color="#1967FB"
-              size={28}
-            />
-          </BackButton>
-
-          <Title>Cadastro de senha</Title>
-        </>
-      )}
+    <Container>
+      <LeftSide>{!back ?
+        <Box><Key/></Box>:
+        <Button onPress={goBack}><Feather name="chevron-left" size={24} color="#FFF" /></Button>}
+      </LeftSide>
+      <MiddleSide>
+        <Title>{title}</Title>
+      </MiddleSide>
+      <RightSide>{back ?
+        <Box><Key/></Box>:
+        <ConfigNav/>}
+      </RightSide>
     </Container>
   );
+  function ConfigNav(){
+    return (
+      <Row>
+        <Row><Amount>Você tem <Bold>{passwordCount} {passwordCount == 1? 'senha': 'senhas'}</Bold></Amount></Row>
+        <Button onPress={clearData}><Feather name="settings" size={24} color="#FFF" /></Button>
+      </Row>
+    )
+  }
 }

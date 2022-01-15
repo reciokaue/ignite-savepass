@@ -8,10 +8,10 @@ export const Container = styled.View`
 `;
 
 export const Label = styled.Text`
-  font-family: 'Rubik_400Regular';
+  font-family: 'Rubik_500Medium';
   font-size: ${RFValue(15)}px;
-  color: #888D97;
-  margin-bottom: 7px;
+  color: #525252;
+  margin-bottom: ${RFValue(9)}px;
 `;
 
 export const Error = styled.Text`
@@ -26,11 +26,12 @@ export const InputContainer = styled.View`
   align-items: center;
 
   background: #FFFFFF;
-  border: 1px #e3e4e5;
-  padding: 0 20px;
-  border-radius: 4px;
-  height: ${RFValue(56)}px;
+  padding: ${RFValue(23)}px ${RFValue(16)}px;
+  border-radius: 5px;
   width: 100%;
+
+  border-left-width: 3px;
+  border-left-color: #ffff;
 `;
 
 export const FormInput = styled(TextInput)`

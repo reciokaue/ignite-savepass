@@ -1,76 +1,67 @@
-import styled, { css } from 'styled-components/native';
-import Feather from '@expo/vector-icons/Feather';
+import styled from 'styled-components/native';
+
 import { getStatusBarHeight } from 'react-native-iphone-x-helper';
 import { RFValue } from 'react-native-responsive-fontsize';
+import { BorderlessButton } from 'react-native-gesture-handler';
 
-interface ContainerProps {
-  hasUserData: boolean;
-}
-
-export const Container = styled.View<ContainerProps>`
+export const Container = styled.View`
   flex-direction: row;
   align-items: center;
-  padding: ${({ hasUserData }) => hasUserData
-    ? `${getStatusBarHeight(true) + 16}px  24px 60px 24px`
-    : `${getStatusBarHeight(true) + 9}px 0 23px 0`
-  }
-  ${({ hasUserData }) => hasUserData && css`
-    justify-content: space-between;
-  `}
+  justify-content: space-between;
+  background: #1967FB;
+  padding: ${getStatusBarHeight()}px 0 0;
+  z-index: 0;
 `;
-
-export const AboutUser = styled.View`
-  flex-direction: row;
+export const Button = styled(BorderlessButton)`
   align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
 `;
-
-export const Avatar = styled.Image`
-  width: ${RFValue(56)}px;
-  height: ${RFValue(56)}px;
-  border-radius: 4px;
+export const Box = styled.View`
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
 `;
-
-export const TextContainer = styled.View`
-  margin-left: 16px;
+export const LeftSide = styled.View`
+  min-width: 20%;
+  padding: ${RFValue(16)}px ${RFValue(10)}px ${RFValue(16)}px ${RFValue(12)}px;
+  /* background-color: #fd0; */
+  align-items: flex-end;
+  justify-content: center;
 `;
-
-export const HelloMessage = styled.Text`
-  font-size: ${RFValue(20)}px;
-  line-height: ${RFValue(26)}px;
-  font-family: 'Rubik_300Light';
-  color: #ffffff;
+export const RightSide = styled.View`
+  /* background-color: #fd0; */
+  min-width: 20%;
+  padding: ${RFValue(16)}px ${RFValue(15)}px ${RFValue(16)}px ${RFValue(10)}px;
+  align-items: flex-start;
+  justify-content: center;
 `;
+export const MiddleSide = styled.View`
+  flex: 1;
+  /* height: 100%; */
+  /* background-color: #00e; */
 
-export const BoldText = styled.Text`
-  font-size: ${RFValue(20)}px;
-  line-height: ${RFValue(26)}px;
-  font-family: 'Rubik_500Medium';
-  color: #ffffff;
+  align-items: center;
+  justify-content: center;
 `;
-
-export const SecondaryMessage = styled.Text`
-  font-size: ${RFValue(13)}px;
-  font-family: 'Rubik_300Light';
-  color: #ffffff;
-`;
-
-export const AddButton = styled.Pressable`
-  padding: ${RFValue(14.5)}px;
-  border: 1.5px #508bfc;
-  border-radius: 4px;
-`;
-
-export const Icon = styled(Feather)``;
-
-export const BackButton = styled.Pressable`
-  position: absolute;
-  left: 13px;
-  bottom: 23px;
-`;
-
 export const Title = styled.Text`
-  font-size: ${RFValue(20)}px;
+  font-size: ${RFValue(15)}px;
   font-family: 'Rubik_500Medium';
-  color: #3D434D;
+  color: #FFF;
   margin: auto;
+`;
+export const Row = styled.View`
+  flex-direction: row;
+  align-items: center;
+`;
+export const Amount = styled.Text`
+  font-size: ${RFValue(15)}px;
+  font-family: 'Rubik_400Regular';
+  color: #FFF;
+  margin-right: 12px;
+`;
+export const Bold = styled.Text`
+  font-family: 'Rubik_500Medium';
 `;

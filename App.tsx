@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { StatusBar } from 'react-native';
-import AppLoading from 'expo-app-loading';
+
 import {
   useFonts,
   Rubik_300Light,
   Rubik_400Regular,
   Rubik_500Medium
 } from '@expo-google-fonts/rubik';
-import { NavigationContainer } from '@react-navigation/native';
 
-import { AppRoutes } from './src/routes/app.routes';
+import AppLoading from 'expo-app-loading';
+import { PasswordProvider, usePassword } from './src/context/passwordContext';
+import { Routes } from './src/routes';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -18,18 +19,21 @@ export default function App() {
     Rubik_500Medium
   });
 
-  if (!fontsLoaded) {
-    return <AppLoading />
-  }
+  const { loading } = usePassword()
 
-  return (
-    <NavigationContainer>
-      <StatusBar
-        barStyle="light-content"
-        backgroundColor="transparent"
-        translucent
-      />
-      <AppRoutes />
-    </NavigationContainer>
-  );
+  useEffect(() => {
+    console.log(loading)
+  }, [loading])
+
+  if (!fontsLoaded || loading) {
+    return <AppLoading />
+  }else{
+    return (
+      <PasswordProvider>
+        <StatusBar barStyle="light-content" backgroundColor="transparent" translucent/>
+        <Routes/>
+      </PasswordProvider>
+    );
+  }
+  
 }
