@@ -61,6 +61,7 @@
 <!-- </details> -->
 
 
+<!-- need english version -->
 
 <!-- ABOUT THE PROJECT -->
 ### About The Project
@@ -68,15 +69,34 @@
 
 O Savepass é um aplicativo para controle de senhas, com design simples e de fácil entendimento e usabilidade, desenvolvido para todas as faixas etárias com intuito de simplificar a vida do usuário e centralizar todas as senhas em um único lugar
 
-Desenvolvido com Expo e juntamente ao React Native para desenvolver aos dois sistemas operacionais simultaneamente, e utilizando Typescript em todo o projeto visando a organização e manutenção de codigo
+Desenvolvido com Expo e juntamente ao React Native para desenvolver aos dois sistemas operacionais simultaneamente, e utilizando Typescript em todo o projeto visando a organização e manutenção de código
+
+### Learnings
+  * Tratamento de strings e arrays com javascript 
+  * Validação de formulários com Yup 
+  * Gerir formulários com useForm( ), melhora na performance em formulários diminuindo a taxa de vezes em que é atualizada a interface 
+  * Library do AsyncStorage para guardar informações do usuário 
+  * Utilização de Alerts personalizados com o AwesomeAlerts 
+  * Utilização de validação por impressão digital 
+
+### New Features
+  * Detalhe da senha 
+  * Opções de editar e excluir a senha 
+  * Telas de apresentação 
+  * Senha pin para o aplicativo 
+  * Melhorias no design e experiencia do usuário 
 
 # Figma prototype design
 
-<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F8WbWCVM0LFHsgHRk3nmfbO%2FSavepass%3Fnode-id%3D10485%253A499" allowfullscreen></iframe>
+<a href="https://www.figma.com/file/8WbWCVM0LFHsgHRk3nmfbO/Savepass">
+    <img src="./readme_images/Mockup.png" alt="Brief project design" style="object-fit: contain" width="100%" height="350px">
+</a>
+<a href="https://www.figma.com/file/8WbWCVM0LFHsgHRk3nmfbO/Savepass">click here to go to figma project
+</a>
+
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-<!-- need english version -->
 
 ### Built With
 
@@ -125,13 +145,13 @@ Desenvolvido com Expo e juntamente ao React Native para desenvolver aos dois sis
 
 O funcionamento do app é simples, caso queria ver o fluxo de funcionamento de forma visual acesse o layout <a href="https://www.figma.com/file/8WbWCVM0LFHsgHRk3nmfbO/Savepass">clique aqui</a>.
 
-No primeiro uso o aplicativo mostra uma apresentação e de da as opções de trancar ou não seu app, selecionando a opção "sim", você sera levado para a tela de adicionar uma senha, caso escolha a opção "não", vai ser redicionado diretamente para a tela inicial do aplicativo, após o este processo inicial caso tenha adicionado a senha ela sera requirida toda vez ao entrar no app.
+No primeiro uso o aplicativo mostra uma apresentação e de da as opções de trancar ou não seu app, selecionando a opção "sim", você sera levado para a tela de adicionar uma senha, caso escolha a opção "não", vai ser redirecionado diretamente para a tela inicial do aplicativo, após o este processo inicial caso tenha adicionado a senha ela sera requirida toda vez ao entrar no app.
 
-O botão em cor azul, localizado na parte inferior direita do aplicativo te leva para a tela de adicionar uma nova senha, onde exitem as opções de, nome da serviço, email utilizado, senha, e uma descrição cujo é opcional
+O botão em cor azul, localizado na parte inferior direita do aplicativo te leva para a tela de adicionar uma nova senha, onde exitem as opções de, nome da serviço, e-mail utilizado, senha, e uma descrição cujo é opcional
 
 Após adicionar suas senhas pode as ver na tela inicial, ao clicar no olho no lado direito dela, tera acesso a senha, caso clique no card inteiro sera levado para a tela de edição de senha
 
-Na tela inicial voce pode pesquisar uma das suas senhas adicionadas pelo nome, na caixa te texto localizada na parte superior da tela, após pressionar o botão em formato de seta aparecerão todas as senhas que contem o texto digitado 
+Na tela inicial você pode pesquisar uma das suas senhas adicionadas pelo nome, na caixa te texto localizada na parte superior da tela, após pressionar o botão em formato de seta aparecerão todas as senhas que contem o texto digitado 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
