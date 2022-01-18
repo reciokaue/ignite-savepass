@@ -41,6 +41,7 @@
       <a href="#about-the-project">About The Project</a>
       <ul>
         <li><a href="#built-with">Built With</a></li>
+        <li><a href="#figma-prototype-design">Project Design</a></li>
       </ul>
     </li>
     <li>
@@ -63,12 +64,15 @@
 
 <!-- ABOUT THE PROJECT -->
 ### About The Project
-
-# [SavePass](https://www.figma.com/file/8WbWCVM0LFHsgHRk3nmfbO/Savepass)
+# SavePass
 
 O Savepass é um aplicativo para controle de senhas, com design simples e de fácil entendimento e usabilidade, desenvolvido para todas as faixas etárias com intuito de simplificar a vida do usuário e centralizar todas as senhas em um único lugar
 
 Desenvolvido com Expo e juntamente ao React Native para desenvolver aos dois sistemas operacionais simultaneamente, e utilizando Typescript em todo o projeto visando a organização e manutenção de codigo
+
+# Figma prototype design
+
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F8WbWCVM0LFHsgHRk3nmfbO%2FSavepass%3Fnode-id%3D10485%253A499" allowfullscreen></iframe>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
