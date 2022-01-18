@@ -88,12 +88,15 @@ Desenvolvido com Expo e juntamente ao React Native para desenvolver aos dois sis
 
 # Figma prototype design
 
-<a href="https://www.figma.com/file/8WbWCVM0LFHsgHRk3nmfbO/Savepass">
-    <img src="./readme_images/Mockup.png" alt="Brief project design" style="object-fit: contain" width="100%" height="350px">
-</a>
+<div align="center" style="height: 400px">
+  <a href="https://www.figma.com/file/8WbWCVM0LFHsgHRk3nmfbO/Savepass">
+      <img src="./readme_images/Mockup.png" alt="Brief project design" style="object-fit: contain" width="100%">
+  </a>
+</div>
 <a href="https://www.figma.com/file/8WbWCVM0LFHsgHRk3nmfbO/Savepass">click here to go to figma project
 </a>
 
+---
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
