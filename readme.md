@@ -20,8 +20,6 @@
 <h3 align="center">SavePass</h3>
 
   <p align="center">
-    project_description
-    <br />
     <a href="https://github.com/reciokaue/ignite-savepass"><strong>Explore the docs »</strong></a>
     <br />
     <br />
@@ -55,8 +53,8 @@
     <li><a href="#usage">Usage</a></li>
     <!-- <li><a href="#roadmap">Roadmap</a></li> -->
     <!-- <li><a href="#contributing">Contributing</a></li> -->
-    <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
+    <li><a href="#license">License</a></li>
     <!-- <li><a href="#acknowledgments">Acknowledgments</a></li> -->
   </ol>
 <!-- </details> -->
@@ -74,7 +72,7 @@ Desenvolvido com Expo e juntamente ao React Native para desenvolver aos dois sis
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
+<!-- need english version -->
 
 ### Built With
 
@@ -86,11 +84,8 @@ Desenvolvido com Expo e juntamente ao React Native para desenvolver aos dois sis
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
 <!-- GETTING STARTED -->
 # Getting Started
-
 
 ## Prerequisites
 
@@ -112,7 +107,10 @@ Desenvolvido com Expo e juntamente ao React Native para desenvolver aos dois sis
    ```sh
    npm install
    ```
-3. Enter your API in `config.js`
+3. Run the app
+    ```sh
+    expo start
+    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -121,7 +119,15 @@ Desenvolvido com Expo e juntamente ao React Native para desenvolver aos dois sis
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+O funcionamento do app é simples, caso queria ver o fluxo de funcionamento de forma visual acesse o layout <a href="https://www.figma.com/file/8WbWCVM0LFHsgHRk3nmfbO/Savepass">clique aqui</a>.
+
+No primeiro uso o aplicativo mostra uma apresentação e de da as opções de trancar ou não seu app, selecionando a opção "sim", você sera levado para a tela de adicionar uma senha, caso escolha a opção "não", vai ser redicionado diretamente para a tela inicial do aplicativo, após o este processo inicial caso tenha adicionado a senha ela sera requirida toda vez ao entrar no app.
+
+O botão em cor azul, localizado na parte inferior direita do aplicativo te leva para a tela de adicionar uma nova senha, onde exitem as opções de, nome da serviço, email utilizado, senha, e uma descrição cujo é opcional
+
+Após adicionar suas senhas pode as ver na tela inicial, ao clicar no olho no lado direito dela, tera acesso a senha, caso clique no card inteiro sera levado para a tela de edição de senha
+
+Na tela inicial voce pode pesquisar uma das suas senhas adicionadas pelo nome, na caixa te texto localizada na parte superior da tela, após pressionar o botão em formato de seta aparecerão todas as senhas que contem o texto digitado 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -159,10 +165,6 @@ Don't forget to give the project a star! Thanks again!
 
 
 
-<!-- LICENSE -->
-## License
-
-Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 
 <!-- CONTACT -->
@@ -172,8 +174,13 @@ Kaue Recio - [@kaue_recio](https://twitter.com/kaue_recio) - kaue.recio2@gmail.c
 
 Project Link: [https://github.com/reciokaue/ignite-savepass](https://github.com/reciokaue/ignite-savepass)
 
-<p align="right">(<a href="#top">back to top</a>)</p>
 
+<!-- LICENSE -->
+## License
+
+Distributed under the MIT License. See `LICENSE.txt` for more information.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 
 <!-- ACKNOWLEDGMENTS -->
