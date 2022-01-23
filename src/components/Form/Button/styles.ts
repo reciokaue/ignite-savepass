@@ -14,5 +14,5 @@ export const ButtonText = styled.Text`
   font-family: 'Rubik_500Medium';
   font-size: ${RFValue(15)}px;
   /* color: #3D434D; */
-  color: #FFFFFF;
+  color: ${({ theme }) => theme.colors.whiteTitle};
 `;

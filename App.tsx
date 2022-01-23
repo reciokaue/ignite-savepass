@@ -12,7 +12,12 @@ import AppLoading from 'expo-app-loading';
 import { PasswordProvider, usePassword } from './src/context/passwordContext';
 import { Routes } from './src/routes';
 
+import { ThemeProvider } from 'styled-components/native';
+import light from './src/styles/light';
+import dark from './src/styles/dark';
+
 export default function App() {
+  const [ theme, setTheme ] = useState(false)
   const [fontsLoaded] = useFonts({
     Rubik_300Light,
     Rubik_400Regular,
@@ -21,19 +26,15 @@ export default function App() {
 
   const { loading } = usePassword()
 
-  useEffect(() => {
-    console.log(loading)
-  }, [loading])
-
-  if (!fontsLoaded || loading) {
+  if (!fontsLoaded || loading) 
     return <AppLoading />
-  }else{
-    return (
+
+  return (
+    <ThemeProvider theme={theme? light: dark}>
       <PasswordProvider>
         <StatusBar barStyle="light-content" backgroundColor="transparent" translucent/>
         <Routes/>
       </PasswordProvider>
-    );
-  }
-  
+    </ThemeProvider>
+  );
 }

@@ -13,7 +13,7 @@ interface LoginListDataProps {
 }
 export const Container = styled.View`
   flex: 1;
-  background-color: #F2F3F5;
+  background-color:  ${({ theme }) => theme.colors.background};
   /* padding: 0 ${RFValue(24)}px; */
 `;
 export const LockButton = styled(RectButton).attrs({
@@ -32,14 +32,14 @@ export const LockButton = styled(RectButton).attrs({
   height: ${RFValue(60)}px;
 
   border-radius: 100px;
-  background: #1967FB;
+  background: ${({ theme }) => theme.colors.primary};
 
   border-radius: 100px;
 `
 export const Title = styled.Text`
   font-size: ${RFValue(20)}px;
   font-family: 'Rubik_500Medium';
-  color: #525252;
+  color: ${({ theme }) => theme.colors.title};
   margin: ${RFValue(24)}px 0;
 `;
 export const LoginList = styled(FlatList as new () => FlatList<LoginListDataProps>).attrs({

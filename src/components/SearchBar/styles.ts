@@ -20,33 +20,34 @@ export const Container = styled.View`
   border-radius: 5px;
   overflow: hidden;
   z-index: 20;
-  background: #fff;
+  background:  ${({ theme }) => theme.colors.shapes};
 `;
 export const Input = styled(TextInput)`
   flex: 1;
   padding:  ${(RFValue(20))}px ${(RFValue(20))}px;
 
   font-size: ${(RFValue(15))}px;
-  color: #3D434D;
+  color:  ${({ theme }) => theme.colors.input};
   font-family: 'Rubik_400Regular';
   font-size: ${(RFValue(15))}px;
   
-  border-right-color: #e3e4e5;
+  border-right-color:  ${({ theme }) => theme.colors.line};
   border-right-width: 1.5px;
 `;
 export const Button = styled(RectButton)`
-  background: #fff;
+  background: ${({ theme }) => theme.colors.shapes};
   padding: 16px;
   justify-content: center;
 `;
 export const Icon = styled(Feather).attrs({
   size: 24,
-  color: '#B2B2B2'
-})``;
+})`
+  color:  ${({ theme }) => theme.colors.input};
+`;
 export const FakeBackground = styled.View`
   width: 120%;
   height: 50%;
-  background-color: #1967FB;
+  background-color: ${({ theme }) => theme.colors.primary};
 
   position: absolute;
   top: 0;

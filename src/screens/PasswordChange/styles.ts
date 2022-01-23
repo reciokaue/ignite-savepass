@@ -7,13 +7,13 @@ export const Container = styled.View`
   flex: 1;
   justify-content: flex-end;
   align-items: center;
-  background-color: #1967FB;
+  background-color: ${({ theme }) => theme.colors.primary};
   padding: ${RFValue(24)}px;
 `;
 export const Title = styled.Text`
   font-size: ${RFValue(16)}px;
   text-align: center;
-  color: #e3e4e5;
+  color: ${({ theme }) => theme.colors.whiteTitle};
   font-weight: bold;
   font-family: 'Rubik_400Regular';
 `;
@@ -31,11 +31,11 @@ export const NumpadBox = styled.FlatList.attrs({
 export const Password = styled.Text`
   padding: ${RFValue(12)}px ${RFValue(32)}px;
   margin: ${RFValue(32)}px ${RFValue(32)}px ${RFValue(16)}px;
-  border-bottom-color: #e3e4e5;
+  border-bottom-color: ${({ theme }) => theme.colors.whiteTitle};
   border-bottom-width: 1.5px;
   
   font-size: ${RFValue(22)}px;
-  color: #e3e4e5;
+  color: ${({ theme }) => theme.colors.whiteTitle};
   text-align: center;
 `;
 export const NumberContainer = styled(BorderlessButton)`

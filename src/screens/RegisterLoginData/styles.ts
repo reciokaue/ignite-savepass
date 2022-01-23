@@ -3,7 +3,7 @@ import { RFValue } from 'react-native-responsive-fontsize';
 
 export const Container = styled.ScrollView`
   flex-grow: 1;
-  background-color: #F2F3F5;
+  background-color: ${({ theme }) => theme.colors.background};
   /* justify-content: flex-end; */
 `;
 export const Form = styled.View`

@@ -7,13 +7,13 @@ export const Container = styled.View`
   flex: 1;
   justify-content: flex-end;
   align-items: center;
-  background-color: #1967FB;
+  background-color: ${({ theme }) => theme.colors.primary};
   padding: ${RFValue(24)}px;
 `;
 export const Title = styled.Text`
   font-size: ${RFValue(28)}px;
   text-align: center;
-  color: #e3e4e5;
+  color: ${({ theme }) => theme.colors.whiteTitle};
   font-weight: bold;
   font-family: 'Rubik_500Medium';
 `;
@@ -36,6 +36,6 @@ export const ButtonContainer = styled(RectButton)`
 export const ButtonText = styled.Text`
   font-size: ${RFValue(14)}px;
   text-align: center;
-  color: #fff;
+  color: ${({ theme }) => theme.colors.whiteTitle};
   font-family: 'Rubik_500Medium';
 `;
