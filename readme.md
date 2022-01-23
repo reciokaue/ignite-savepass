@@ -88,7 +88,7 @@ Desenvolvido com Expo e juntamente ao React Native para desenvolver aos dois sis
 
 # Figma prototype design
 
-<div align="center" style="height: 400px">
+<div align="center" >
   <a href="https://www.figma.com/file/8WbWCVM0LFHsgHRk3nmfbO/Savepass">
       <img src="./readme_images/Mockup.png" alt="Brief project design" style="object-fit: contain" width="100%">
   </a>
@@ -108,8 +108,6 @@ Desenvolvido com Expo e juntamente ao React Native para desenvolver aos dois sis
 * [Expo](https://docs.expo.dev)
 * [Javascript](https://reactnative.dev)
 * [Typescript](https://www.typescriptlang.org)
-
-<p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
 # Getting Started
