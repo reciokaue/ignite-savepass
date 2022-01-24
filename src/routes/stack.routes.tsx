@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { createStackNavigator } from '@react-navigation/stack';
-import { usePassword } from '../context/passwordContext';
+import { useSettings } from '../context/settingsContext';
 import AppLoading from 'expo-app-loading';
 
 import { Presentation } from '../screens/Presentation';
@@ -14,7 +14,7 @@ import { RegisterLoginData } from '../screens/RegisterLoginData';
 const { Navigator, Screen } = createStackNavigator();
 
 export function SavepassRoutes() {
-  const { isLogged, started, loading } = usePassword()
+  const { isLogged, started, loading } = useSettings()
 
   if(loading){
     return <AppLoading/>

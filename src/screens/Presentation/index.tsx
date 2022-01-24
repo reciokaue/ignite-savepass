@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 import {
   Container,
@@ -9,10 +9,7 @@ import {
 } from './styles';
 
 import KeyHero from '../../assets/Key-rafiki.png'
-
 import { useNavigation } from '@react-navigation/native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { usePassword } from '../../context/passwordContext';
 
 export function Presentation() {
   const { navigate } = useNavigation();

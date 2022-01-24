@@ -4,7 +4,7 @@ import { Home } from '../screens/Home';
 import { RegisterLoginData } from '../screens/RegisterLoginData';
 import { Lock } from '../screens/Lock';
 import { PasswordDetail } from '../screens/PasswordDetail';
-import { usePassword } from '../context/passwordContext';
+import { useSettings } from '../context/settingsContext';
 
 const {
   Navigator,
@@ -12,7 +12,7 @@ const {
 } = createStackNavigator();
 
 export function AppRoutes() {
-  const { isLogged, loading } = usePassword()
+  const { isLogged, loading } = useSettings()
 
   return (
     <Navigator initialRouteName='Lock' screenOptions={{headerShown: false}}>

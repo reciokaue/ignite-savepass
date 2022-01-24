@@ -10,12 +10,12 @@ import {
 
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
-import { usePassword } from '../../context/passwordContext';
+import { useSettings } from '../../context/settingsContext';
 
 export function Question() {
   const { navigate } = useNavigation();
   
-  const { handleSetPassword, handleStarted } = usePassword()
+  const { handleSetPassword, handleStarted } = useSettings()
 
   function handleGoLock(){
     navigate('Lock')

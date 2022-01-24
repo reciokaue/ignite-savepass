@@ -19,7 +19,7 @@ import { LongPressGestureHandler } from 'react-native-gesture-handler';
 import { Alert, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { usePassword } from '../../context/passwordContext';
+import { useSettings } from '../../context/settingsContext';
 
 const num = [1, 2, 3, 4, 5, 6, 7, 8, 9, 'remove', 0, 'go']
 
@@ -31,7 +31,7 @@ export function Lock() {
   const [fingerPrints, setFingerPrints] = useState(false);
   
   const { navigate } = useNavigation();
-  const { password, started, handleSetPassword, handleStarted, setIsLogged } = usePassword()
+  const { password, started, handleSetPassword, handleStarted, setIsLogged } = useSettings()
   
   useEffect(()=>{
     checkDeviceForHardware();
@@ -58,8 +58,6 @@ export function Lock() {
    
    async function handleRegister() {
     if(started ){
-      console.log('NEW PASSWORD', newPassword)
-      console.log('PASSWORD', password)
       if( newPassword === password){
         loginSucess()
         setIsLogged(true)
@@ -74,7 +72,6 @@ export function Lock() {
   function loginSucess(){
     navigate('Home')
   }
-    
 
   return (
     <Container>
@@ -107,7 +104,7 @@ export function Lock() {
           )}
         />
       </Wrapper>
-      {started? 
+      {started && compatible && fingerPrints?
         <NumberContainer onPress={() => scanFingerprint()}>
           <MaterialCommunityIcons  name="fingerprint" size={70} color="#e3e4e5" />
         </NumberContainer>: <View style={{height: 100}}/>}

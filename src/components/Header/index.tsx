@@ -17,7 +17,7 @@ import {
 } from './styles';
 
 import Key from '../../assets/key.svg'
-import { usePassword } from '../../context/passwordContext';
+import { useSettings } from '../../context/settingsContext';
 
 interface Props{
   title?: string
@@ -27,7 +27,7 @@ interface Props{
 
 export function Header({title, back = false, passwordCount}: Props) {
   const { goBack } = useNavigation();
-  const { clearData } = usePassword()
+  const { clearData } = useSettings()
 
   function handleAddPass() {
     goBack()

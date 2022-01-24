@@ -9,7 +9,7 @@ import {
 } from '@expo-google-fonts/rubik';
 
 import AppLoading from 'expo-app-loading';
-import { PasswordProvider, usePassword } from './src/context/passwordContext';
+import { PasswordProvider, useSettings } from './src/context/settingsContext';
 import { Routes } from './src/routes';
 
 import { ThemeProvider } from 'styled-components/native';
@@ -17,14 +17,13 @@ import light from './src/styles/light';
 import dark from './src/styles/dark';
 
 export default function App() {
-  const [ theme, setTheme ] = useState(false)
   const [fontsLoaded] = useFonts({
     Rubik_300Light,
     Rubik_400Regular,
     Rubik_500Medium
   });
 
-  const { loading } = usePassword()
+  const { loading, theme } = useSettings()
 
   if (!fontsLoaded || loading) 
     return <AppLoading />
