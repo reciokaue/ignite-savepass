@@ -34,7 +34,7 @@ export const InputContainer = styled.View`
   width: 100%;
 
   border-left-width: 3px;
-  border-left-color: #ffff;
+  border-left-color: ${({ theme }) => theme.colors.line};
 `;
 
 export const FormInput = styled(TextInput)`

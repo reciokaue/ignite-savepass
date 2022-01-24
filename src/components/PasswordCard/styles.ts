@@ -43,7 +43,7 @@ export const Title = styled.Text`
 export const Password = styled.Text`
   font-family: 'Rubik_500Medium';
   font-size: ${RFValue(15)}px;
-  color:  ${({ theme }) => theme.colors.primary};
+  color: #1967FB;
 `;
 export const LoginData = styled.View`
   max-width: 243px;

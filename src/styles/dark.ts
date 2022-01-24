@@ -1,17 +1,18 @@
 export default {
   colors: {
-    background: '#EBEBEB',
-    shapes: '#FFFFFF',
-    line: '#EBEBF0',
+    background: '#121212',
+    shapes: '#252525',
+    line: '#414141',
     
     primary: '#000',
     successs: '#1DB863',
     exclude: '#DC1637',
+    visiblePass: '#18191A',
     
-    title: '#000',
-    whiteTitle: '#fff',
-    input: '#fff',
-    text: '#BABBBF',
+    title: '#EBEBEB',
+    whiteTitle: '#E6E6E6',
+    input: '#CCCCCC',
+    text: '#808080',
   },
   fonts: {
     primary_400:'Inter_400Regular',

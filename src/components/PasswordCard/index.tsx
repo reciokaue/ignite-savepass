@@ -2,6 +2,7 @@ import { useNavigation } from '@react-navigation/native';
 import React, { useState } from 'react';
 
 import { Alert } from 'react-native';
+import { useTheme } from 'styled-components';
 
 import {
   Wrapper,
@@ -27,6 +28,7 @@ export function PasswordCard({service_name, email, password, item_id, about = ''
   const [passIsVisible, setPassIsVisible] = useState(false);
 
   const { navigate } = useNavigation();
+  const { colors } = useTheme()
 
   function handleTogglePassIsVisible() {
     setPassIsVisible(!passIsVisible);
@@ -44,13 +46,8 @@ export function PasswordCard({service_name, email, password, item_id, about = ''
     }})
   }
   return (
-  <Wrapper colors={[passIsVisible? '#EBF2FF': '#ffffff', '#ffffff']}>
-    <Container
-      // rippleColor={'#EBF2FFff'}
-      // underlayColor='#EBF2FF'
-      // activeOpacity={0.1}
-      onPress={handleGoToDetail}
-    >
+  <Wrapper colors={[passIsVisible? colors.visiblePass: colors.shapes, colors.shapes]}>
+    <Container onPress={handleGoToDetail} >
       <Info>
         {passIsVisible ? <Title>{service_name}</Title>: <BoldTitle>{service_name}</BoldTitle>}
         {passIsVisible ? <Password>{password}</Password>: <Email>{email}</Email>}

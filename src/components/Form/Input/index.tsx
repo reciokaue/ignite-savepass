@@ -11,6 +11,7 @@ import {
   ToggleShowPassButton,
   Icon
 } from './styles';
+import { useTheme } from 'styled-components';
 
 interface Props extends TextInputProps {
   control: Control;
@@ -30,6 +31,7 @@ export function Input({
   ...rest
 }: Props) {
   const [passwordHidden, setPasswordHidden] = useState(true);
+  const { colors } = useTheme()
 
   return (
     <Container>
@@ -47,8 +49,8 @@ export function Input({
               onChangeText={onChange}
               value={value}
               secureTextEntry={secureTextEntry && passwordHidden}
-              placeholderTextColor="#BABBBF"
-              style={!editing? {color: '#BABBBF' }: null}
+              placeholderTextColor={colors.text}
+              style={!editing? {color: colors.text }: null}
             />
             {secureTextEntry && (
               <ToggleShowPassButton onPress={() => setPasswordHidden(!passwordHidden)}>

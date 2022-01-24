@@ -7,6 +7,7 @@ export default {
     primary: '#1967FB',
     successs: '#1DB863',
     exclude: '#DC1637',
+    visiblePass: '#EBF2FF',
     
     title: '#000',
     whiteTitle: '#fff',
