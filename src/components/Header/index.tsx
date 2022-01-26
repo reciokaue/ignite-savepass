@@ -23,7 +23,7 @@ interface Props{
   title?: string
   back?: boolean
   passwordCount?: number
-  onSettings: () => void
+  onSettings?: () => void
 }
 
 export function Header({title, back = false, passwordCount, onSettings}: Props) {

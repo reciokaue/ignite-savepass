@@ -24,7 +24,7 @@ export const Title= styled.Text`
 `
 export const Subtitle= styled.Text`
   font-family: 'Rubik_400Regular';
-  font-size: ${RFValue(10)}px;
+  font-size: ${RFValue(15)}px;
   color:  ${({ theme }) => theme.colors.text};
 `
 export const Accessory= styled.View`

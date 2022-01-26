@@ -74,7 +74,7 @@ export function Home() {
 
   useFocusEffect(useCallback(() => {
     loadData();
-  }, []));
+  }, [modalizeRef]));
 
   return (
     <>
@@ -108,8 +108,8 @@ export function Home() {
           }}
         />
       </Container>
-      <Modalize ref={modalizeRef} adjustToContentHeight>
-        <Settings/>  
+      <Modalize ref={modalizeRef} adjustToContentHeight modalStyle={{borderTopLeftRadius: 22, borderTopRightRadius: 22}}>
+        <Settings loadData={loadData}/>  
       </Modalize>
     </>
   )

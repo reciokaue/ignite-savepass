@@ -23,18 +23,15 @@ export default function App() {
     Rubik_500Medium
   });
 
-  const { loading, theme } = useSettings()
+  const { loading } = useSettings()
 
   if (!fontsLoaded || loading ) 
     return <AppLoading />
 
-
   return (
-    <ThemeProvider theme={light}>
       <PasswordProvider>
         <StatusBar barStyle="light-content" backgroundColor="transparent" translucent/>
         <Routes/>
       </PasswordProvider>
-    </ThemeProvider>
   );
 }
