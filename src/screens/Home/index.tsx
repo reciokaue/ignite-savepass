@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useRef } from 'react';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
@@ -8,6 +8,8 @@ import { SearchBar } from '../../components/SearchBar';
 import { PasswordCard } from '../../components/PasswordCard';
 
 import LockPlus from '../../assets/lock-open-plus-outline.svg'
+import { View } from 'react-native';
+import { Modalize } from 'react-native-modalize';
 
 import {
   Container,
@@ -15,8 +17,7 @@ import {
   LoginList,
   LockButton,
 } from './styles';
-import { Keyboard, KeyboardAvoidingView, View } from 'react-native';
-import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
+import { Settings } from '../Settings';
 
 interface LoginDataProps {
   id: string;
@@ -34,7 +35,11 @@ export function Home() {
   const [data, setData] = useState<LoginListDataProps>([]);
   
   const { navigate } = useNavigation();
+  const modalizeRef = useRef<Modalize>(null);
 
+  function handleOpenModal() {
+    modalizeRef.current?.open();
+  }
   function handleAddPassword() {
     navigate('RegisterLoginData');
   }
@@ -73,7 +78,7 @@ export function Home() {
 
   return (
     <>
-      <Header passwordCount={searchListData.length}/>
+      <Header passwordCount={searchListData.length} onSettings={handleOpenModal}/>
       <Container>
         <SearchBar
           placeholder="Qual senha você procura?"
@@ -103,6 +108,9 @@ export function Home() {
           }}
         />
       </Container>
+      <Modalize ref={modalizeRef} adjustToContentHeight>
+        <Settings/>  
+      </Modalize>
     </>
   )
 }

@@ -23,9 +23,10 @@ interface Props{
   title?: string
   back?: boolean
   passwordCount?: number
+  onSettings: () => void
 }
 
-export function Header({title, back = false, passwordCount}: Props) {
+export function Header({title, back = false, passwordCount, onSettings}: Props) {
   const { goBack } = useNavigation();
   const { clearData } = useSettings()
 
@@ -52,7 +53,7 @@ export function Header({title, back = false, passwordCount}: Props) {
     return (
       <Row>
         <Row><Amount>Você tem <Bold>{passwordCount} {passwordCount == 1? 'senha': 'senhas'}</Bold></Amount></Row>
-        <Button onPress={clearData}><Feather name="settings" size={24} color="#FFF" /></Button>
+        <Button onPress={onSettings}><Feather name="settings" size={24} color="#FFF" /></Button>
       </Row>
     )
   }

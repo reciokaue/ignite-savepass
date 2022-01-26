@@ -25,11 +25,12 @@ export default function App() {
 
   const { loading, theme } = useSettings()
 
-  if (!fontsLoaded || loading) 
+  if (!fontsLoaded || loading ) 
     return <AppLoading />
 
+
   return (
-    <ThemeProvider theme={theme? light: dark}>
+    <ThemeProvider theme={light}>
       <PasswordProvider>
         <StatusBar barStyle="light-content" backgroundColor="transparent" translucent/>
         <Routes/>
