@@ -84,7 +84,7 @@ export function Settings({loadData}: Props) {
       <SettingRow onPress={shareApp} title='Compartilhar app' iconName='share'/><Separator/>
       <SettingRow onPress={toggleTheme} title={theme == 'light'? 'Light Mode': 'Dark Mode'} iconName={theme == 'light'? 'sun': 'moon'}/><Separator/>
       <SettingRow onPress={handleNewPassword} title='Trocar senha' iconName='lock'/><Separator/>
-      <SettingRow title='Fazer Backup' iconName='server'/><Separator/>
+      {/* <SettingRow title='Fazer Backup' iconName='server'/><Separator/> */}
       <SettingRow title='Versão' subtitle='1.3' iconName='git-pull-request'/><Separator/>
       <SettingRow onPress={() => setShowAlert(true)} title='Excluir todas as senhas' iconName='alert-triangle'/>
       {/* <SettingRow title='Sair do app' iconName='x-circle'/> */}
