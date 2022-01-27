@@ -54,14 +54,14 @@ export function PasswordProvider({children}: ProviderProps){
       console.log(error)
     }
   }
-  async function handleSetTheme(theme: string){
-    try {
-      await AsyncStorage.setItem(themeKey, theme)
-      setTheme(theme)
-    } catch (error) {
-      console.log(error)
-    }
-  }
+  // async function handleSetTheme(theme: string){
+  //   try {
+  //     await AsyncStorage.setItem(themeKey, theme)
+  //     setTheme(theme)
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // }
   async function toggleTheme(){
     if(theme == 'light'){
       await AsyncStorage.setItem(themeKey, 'dark')
@@ -97,7 +97,6 @@ export function PasswordProvider({children}: ProviderProps){
         setIsLogged(true)
       }
       setLoading(false)
-
     } catch (error) {
       console.log(error)
     }
@@ -105,6 +104,7 @@ export function PasswordProvider({children}: ProviderProps){
   
   useEffect(() => {
     loadData()
+    // clearData()
   }, [])
   
   return (

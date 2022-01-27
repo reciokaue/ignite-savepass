@@ -10,6 +10,7 @@ import { Lock } from '../screens/Lock';
 import { Home } from '../screens/Home';
 import { PasswordDetail } from '../screens/PasswordDetail';
 import { RegisterLoginData } from '../screens/RegisterLoginData';
+import { ChangePassword } from '../screens/ChangePassword';
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -30,6 +31,7 @@ export function SavepassRoutes() {
       <Screen name="Home" component={Home} />
       <Screen name="RegisterLoginData" component={RegisterLoginData} />
       <Screen name="PasswordDetail" component={PasswordDetail} />
+      <Screen name="ChangePassword" component={ChangePassword}/>
     </Navigator>
   );
 }

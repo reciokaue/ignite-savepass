@@ -1,10 +1,14 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, { useState } from 'react';
-import { Share, StyleSheet } from 'react-native';
+
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import AwesomeAlert from 'react-native-awesome-alerts';
+
+import { Share, StyleSheet } from 'react-native';
 import { RFValue } from 'react-native-responsive-fontsize';
-import { useTheme } from 'styled-components';
 import { SettingRow } from '../../components/SettingRow';
+
+import { useNavigation } from '@react-navigation/native';
+import { useTheme } from 'styled-components';
 import { useSettings } from '../../context/settingsContext';
 
 import {
@@ -20,8 +24,9 @@ interface Props{
 export function Settings({loadData}: Props) {
   const [ showAlert, setShowAlert ] = useState(false)
 
-  const { toggleTheme, theme } = useSettings()
+  const { toggleTheme, theme, setIsLogged } = useSettings()
   const { colors } = useTheme()
+  const { navigate } = useNavigation<any>()
 
   const dataKey = '@savepass:logins';
 
@@ -29,6 +34,10 @@ export function Settings({loadData}: Props) {
     AsyncStorage.removeItem(dataKey)
     setShowAlert(false)
     loadData()
+  }
+  
+  function handleNewPassword(){
+    navigate('ChangePassword', {changePassword: 'yes'})
   }
 
   async function shareApp(){
@@ -74,7 +83,7 @@ export function Settings({loadData}: Props) {
       <Title>Configurações</Title>
       <SettingRow onPress={shareApp} title='Compartilhar app' iconName='share'/><Separator/>
       <SettingRow onPress={toggleTheme} title={theme == 'light'? 'Light Mode': 'Dark Mode'} iconName={theme == 'light'? 'sun': 'moon'}/><Separator/>
-      <SettingRow title='Trocar senha' iconName='lock'/><Separator/>
+      <SettingRow onPress={handleNewPassword} title='Trocar senha' iconName='lock'/><Separator/>
       <SettingRow title='Fazer Backup' iconName='server'/><Separator/>
       <SettingRow title='Versão' subtitle='1.3' iconName='git-pull-request'/><Separator/>
       <SettingRow onPress={() => setShowAlert(true)} title='Excluir todas as senhas' iconName='alert-triangle'/>

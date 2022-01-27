@@ -37,7 +37,7 @@ export function Header({title, back = false, passwordCount, onSettings}: Props) 
   return (
     <Container>
       <LeftSide>{!back ?
-        <Box><Key/></Box>:
+        <Button onPress={clearData} ><Key/></Button>:
         <Button onPress={goBack}><Feather name="chevron-left" size={24} color="#FFF" /></Button>}
       </LeftSide>
       <MiddleSide>
