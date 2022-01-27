@@ -51,3 +51,11 @@ export const NumberText = styled.Text`
   font-weight: bold;
   font-family: 'Rubik_500Medium';
 `;
+export const ErrorMessage = styled.Text`
+  font-size: ${RFValue(12)}px;
+  text-align: center;
+  color:  ${({ theme }) => theme.colors.exclude};
+  font-weight: bold;
+  font-family: 'Rubik_400Regular';
+`;
+

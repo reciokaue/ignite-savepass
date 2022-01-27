@@ -1,7 +1,7 @@
 import React, { useEffect, useState,  } from 'react';
 
 import { useNavigation, useRoute } from '@react-navigation/native';
-import { Alert, KeyboardAvoidingView, Platform, View, TouchableWithoutFeedback, Keyboard, ScrollView, Text, StyleSheet } from 'react-native';
+import { Alert, KeyboardAvoidingView, Platform, TouchableWithoutFeedback, Keyboard, StyleSheet } from 'react-native';
 import { useForm } from 'react-hook-form';
 
 import * as Yup from 'yup';

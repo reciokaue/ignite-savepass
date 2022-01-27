@@ -10,21 +10,21 @@ import {
   Password,
   NumberContainer,
   NumberText,
+  ErrorMessage,
 } from './styles';
 
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 
-import { LongPressGestureHandler } from 'react-native-gesture-handler';
-import { Alert, View } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { View } from 'react-native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import { useSettings } from '../../context/settingsContext';
 
 const num = [1, 2, 3, 4, 5, 6, 7, 8, 9, 'remove', 0, 'go']
 
 export function Lock() {
   const [ newPassword, setNewPassword ] = useState('')
+  const [ errorMessage, setErrorMessage ] = useState('')
   const [ isVisible, setIsVisible ] = useState(false)
 
   const [compatible, isCompatible] = useState(false);
@@ -32,7 +32,7 @@ export function Lock() {
   
   const { navigate } = useNavigation();
   const { password, started, handleSetPassword, handleStarted, setIsLogged } = useSettings()
-  
+
   useEffect(()=>{
     checkDeviceForHardware();
     checkForFingerprints();
@@ -61,12 +61,18 @@ export function Lock() {
       if( newPassword === password){
         loginSucess()
         setIsLogged(true)
+      }else{
+        setErrorMessage('Senha incorreta')
       }
     }
-    if(!started && newPassword.length >= 4){
-      handleSetPassword(newPassword)
-      handleStarted()
-      loginSucess()
+    if(!started){
+      if(newPassword.length >= 4){
+        handleSetPassword(newPassword)
+        handleStarted()
+        loginSucess()
+      }else{
+        setErrorMessage('A senha deve conter no mínimo 4 caracteres')
+      }
     }
   }
   function loginSucess(){
@@ -75,14 +81,14 @@ export function Lock() {
 
   return (
     <Container>
-      <Title>Digite sua {!started? 'nova ': null}senha</Title>
+      <Title>Digite sua {!started ? 'nova ': null}senha</Title>
       <Password>
         {isVisible? newPassword: '#'.repeat(newPassword.length)}
       </Password>
+      <ErrorMessage>{errorMessage}</ErrorMessage>
       <NumberContainer onPress={() => setIsVisible(!isVisible)}>
         {isVisible? <AntDesign name="eyeo" size={24} color="#e3e4e5"/>:
-          <MaterialCommunityIcons name="eye-off-outline" size={24} color="#e3e4e5" />
-        }
+          <MaterialCommunityIcons name="eye-off-outline" size={24} color="#e3e4e5" />}
       </NumberContainer>
       <Wrapper>
         <NumpadBox
@@ -94,10 +100,11 @@ export function Lock() {
             <NumberContainer onPress={() => {
                 item == 'go' && handleRegister()
                 item == 'remove' ? setNewPassword(newPassword.slice(0, -1)):
-                item != 'go' && setNewPassword(newPassword + item)
+                item != 'go' && newPassword.length < 36 && setNewPassword(newPassword + item)
+                newPassword.length >= 36 && setErrorMessage('A senha não pode ser tão grande')
             }}>
+
               {item !== 'go' && item !== 'remove' && <NumberText>{item}</NumberText>}
-              
               {item == 'remove' && <MaterialCommunityIcons name="tray-remove" size={32} color="#e3e4e5" />}
               {item == 'go' && <AntDesign name="login" size={32} color="#e3e4e5" />}
             </NumberContainer>

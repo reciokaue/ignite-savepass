@@ -9,7 +9,7 @@ export default {
     exclude: '#DC1637',
     visiblePass: '#EBF2FF',
     
-    title: '#000',
+    title: '#525252',
     whiteTitle: '#fff',
     input: '#3D434D',
     text: '#BABBBF',

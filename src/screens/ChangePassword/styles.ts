@@ -9,11 +9,12 @@ export const Container = styled.View`
   align-items: center;
   background-color: ${({ theme }) => theme.colors.primary};
   padding: ${RFValue(24)}px;
+  padding-bottom: 70px;
 `;
 export const Title = styled.Text`
   font-size: ${RFValue(16)}px;
   text-align: center;
-  color: ${({ theme }) => theme.colors.whiteTitle};
+  color:  ${({ theme }) => theme.colors.whiteTitle};
   font-weight: bold;
   font-family: 'Rubik_400Regular';
 `;
@@ -31,11 +32,11 @@ export const NumpadBox = styled.FlatList.attrs({
 export const Password = styled.Text`
   padding: ${RFValue(12)}px ${RFValue(32)}px;
   margin: ${RFValue(32)}px ${RFValue(32)}px ${RFValue(16)}px;
-  border-bottom-color: ${({ theme }) => theme.colors.whiteTitle};
+  border-bottom-color:  ${({ theme }) => theme.colors.whiteTitle};
   border-bottom-width: 1.5px;
   
   font-size: ${RFValue(22)}px;
-  color: ${({ theme }) => theme.colors.whiteTitle};
+  color:  ${({ theme }) => theme.colors.whiteTitle};
   text-align: center;
 `;
 export const NumberContainer = styled(BorderlessButton)`
@@ -47,7 +48,15 @@ export const NumberContainer = styled(BorderlessButton)`
 export const NumberText = styled.Text`
   padding: ${RFValue(12)}px;
   font-size: ${RFValue(22)}px;
-  color: #e3e4e5;
+  color:  ${({ theme }) => theme.colors.whiteTitle};
   font-weight: bold;
   font-family: 'Rubik_500Medium';
 `;
+export const ErrorMessage = styled.Text`
+  font-size: ${RFValue(12)}px;
+  text-align: center;
+  color:  ${({ theme }) => theme.colors.exclude};
+  font-weight: bold;
+  font-family: 'Rubik_400Regular';
+`;
+

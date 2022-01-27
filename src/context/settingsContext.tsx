@@ -1,5 +1,10 @@
-import AsyncStorage from '@react-native-async-storage/async-storage'
 import React, { createContext, ReactNode, useContext, useEffect, useState } from 'react'
+
+import AsyncStorage from '@react-native-async-storage/async-storage'
+import { ThemeProvider } from 'styled-components/native'
+
+import dark from '../styles/dark'
+import light from '../styles/light'
 
 interface SettingsContextData{
   password: string
@@ -9,7 +14,8 @@ interface SettingsContextData{
   loading: boolean
   handleStarted: () => Promise<void>
   handleSetPassword: (password: string) => Promise<void>
-  handleSetTheme:  (theme: string) => Promise<void>
+  // handleSetTheme:  (theme: string) => Promise<void>
+  toggleTheme: () => void
   setIsLogged: (state: boolean) => void
   clearData: () => void
 }
@@ -48,12 +54,21 @@ export function PasswordProvider({children}: ProviderProps){
       console.log(error)
     }
   }
-  async function handleSetTheme(theme: string){
-    try {
-      await AsyncStorage.setItem(themeKey, theme)
-      setTheme(theme)
-    } catch (error) {
-      console.log(error)
+  // async function handleSetTheme(theme: string){
+  //   try {
+  //     await AsyncStorage.setItem(themeKey, theme)
+  //     setTheme(theme)
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // }
+  async function toggleTheme(){
+    if(theme == 'light'){
+      await AsyncStorage.setItem(themeKey, 'dark')
+      setTheme('dark')
+    }else{
+      await AsyncStorage.setItem(themeKey, 'light')
+      setTheme('light')
     }
   }
   async function clearData(){
@@ -82,15 +97,14 @@ export function PasswordProvider({children}: ProviderProps){
         setIsLogged(true)
       }
       setLoading(false)
-
     } catch (error) {
       console.log(error)
-    }finally{
     }
   }
   
   useEffect(() => {
     loadData()
+    // clearData()
   }, [])
   
   return (
@@ -103,10 +117,13 @@ export function PasswordProvider({children}: ProviderProps){
       setIsLogged,
       handleStarted,
       handleSetPassword,
-      handleSetTheme,
+      toggleTheme,
+      // handleSetTheme,
       clearData
     }}>
-      {children}
+      <ThemeProvider theme={theme == 'light'? light: dark}>
+        {children}
+      </ThemeProvider>
     </SettingsContext.Provider>
   )
 }
