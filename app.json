@@ -14,12 +14,12 @@
     "splash": {
       "image": "./assets/images/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#E5E5E5"
+      "backgroundColor": "#1967FB"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#E5E5E5"
+        "backgroundColor": "#1967FB"
       }
     }
   },
