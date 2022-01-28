@@ -89,7 +89,7 @@ export function Home() {
           onSearchButtonPress={handleFilterLoginData}
         />
         <LockButton onPress={handleAddPassword}>
-          <LockPlus/>
+          <LockPlus color="#FFF"/>
         </LockButton>
 
         <LoginList

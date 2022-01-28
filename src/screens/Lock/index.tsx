@@ -24,8 +24,11 @@ const num = [1, 2, 3, 4, 5, 6, 7, 8, 9, 'remove', 0, 'go']
 
 export function Lock() {
   const [ newPassword, setNewPassword ] = useState('')
+  const [ firstPassword, setFirstPassword ] = useState('')
+
   const [ errorMessage, setErrorMessage ] = useState('')
   const [ isVisible, setIsVisible ] = useState(false)
+  const [ passwordIsConfirmed, setPasswordIsConfirmed ] = useState(false)
 
   const [compatible, isCompatible] = useState(false);
   const [fingerPrints, setFingerPrints] = useState(false);
@@ -36,40 +39,52 @@ export function Lock() {
   useEffect(()=>{
     checkDeviceForHardware();
     checkForFingerprints();
-  },[])
-  
-   async function checkDeviceForHardware(){
-      let compatible = await LocalAuthentication.hasHardwareAsync();
-      isCompatible(compatible);
-   }
-   async function checkForFingerprints(){
-       let fingerprints = await LocalAuthentication.isEnrolledAsync();
-       setFingerPrints( fingerprints );
-     };
-   async function scanFingerprint(){
-      await LocalAuthentication.authenticateAsync()
-      .then(res=>{
-          if(res.success === true){
-            loginSucess() 
-            setIsLogged(true)
-      }})
-   };
+
+    async function checkDeviceForHardware(){
+       let compatible = await LocalAuthentication.hasHardwareAsync();
+       isCompatible(compatible);
+    }
+    async function checkForFingerprints(){
+        let fingerprints = await LocalAuthentication.isEnrolledAsync();
+        setFingerPrints( fingerprints );
+      };
+    },[])
+    
+    async function scanFingerprint(){
+        await LocalAuthentication.authenticateAsync()
+        .then(res=>{
+            if(res.success === true){
+              loginSucess() 
+              setIsLogged(true)
+        }})
+    };
    
-   
-   async function handleRegister() {
-    if(started ){
-      if( newPassword === password){
+  async function handleRegister() {
+    if(started){
+      if(newPassword === password){
         loginSucess()
         setIsLogged(true)
       }else{
         setErrorMessage('Senha incorreta')
+        setNewPassword('')
       }
     }
     if(!started){
       if(newPassword.length >= 4){
-        handleSetPassword(newPassword)
-        handleStarted()
-        loginSucess()
+        if(passwordIsConfirmed){
+          if(newPassword == firstPassword){
+            handleSetPassword(newPassword)
+            handleStarted()
+            loginSucess()
+          }else{
+            setErrorMessage('As senhas não são as mesmas')
+            setNewPassword('')
+          }
+        }else{
+          setPasswordIsConfirmed(true)
+          setFirstPassword(newPassword)
+          setNewPassword('')
+        }
       }else{
         setErrorMessage('A senha deve conter no mínimo 4 caracteres')
       }
@@ -81,7 +96,7 @@ export function Lock() {
 
   return (
     <Container>
-      <Title>Digite sua {!started ? 'nova ': null}senha</Title>
+      <Title>{!passwordIsConfirmed? 'Digite sua nova senha': 'Confirme sua senha'}</Title>
       <Password>
         {isVisible? newPassword: '#'.repeat(newPassword.length)}
       </Password>

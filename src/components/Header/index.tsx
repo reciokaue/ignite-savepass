@@ -28,16 +28,18 @@ interface Props{
 
 export function Header({title, back = false, passwordCount, onSettings}: Props) {
   const { goBack } = useNavigation();
-  const { clearData } = useSettings()
+  const {setIsLogged } = useSettings()
+  const { navigate } = useNavigation()
 
-  function handleAddPass() {
-    goBack()
+  function handleLockApp(){
+    setIsLogged(false)
+    navigate('Lock')
   }
 
   return (
     <Container>
       <LeftSide>{!back ?
-        <Button onPress={clearData} ><Key/></Button>:
+        <Button onPress={() => {}}><Key/></Button>:
         <Button onPress={goBack}><Feather name="chevron-left" size={24} color="#FFF" /></Button>}
       </LeftSide>
       <MiddleSide>

@@ -31,7 +31,7 @@ interface FormData {
 
 const schema = Yup.object().shape({
   service_name: Yup.string().required('Nome do serviço é obrigatório!'),
-  email: Yup.string().email('Não é um email válido').required('Email é obrigatório!'),
+  email: Yup.string().required('Email é obrigatório!'),
   password: Yup.string().required('Senha é obrigatória!'),
 })
 
@@ -168,9 +168,9 @@ export function PasswordDetail() {
                 editable={editable} editing={editable}
                 />
               <Input
-                title="E-mail"
+                title="Credencial"
                 testID="email-input"
-                placeholder="E-mail"
+                placeholder="E-mail, número ou username"
                 name="email"
                 error={errors.email && errors.email.message}
                 control={control}

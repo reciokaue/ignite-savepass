@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import {
   Container,
@@ -14,32 +14,62 @@ import {
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import { useSettings } from '../../context/settingsContext';
 import { Header } from '../../components/Header';
 
 const num = [1, 2, 3, 4, 5, 6, 7, 8, 9, 'remove', 0, 'go']
 
+interface Params{
+  removePassword?: boolean
+}
+
 export function ChangePassword() {
   const [ newPassword, setNewPassword ] = useState('')
+
   const [ errorMessage, setErrorMessage ] = useState('')
   const [ isVisible, setIsVisible ] = useState(false)
+  const [ passwordIsConfirmed, setPasswordIsConfirmed ] = useState(false)
   
   const { navigate } = useNavigation();
-  const { handleSetPassword } = useSettings()
+  const { handleSetPassword, password } = useSettings()
+
+  const route = useRoute()
+  const { removePassword } = route.params as Params
   
-  async function handleRegister() {
-    if(newPassword.length >= 4){
-      handleSetPassword(newPassword)
-      navigate('Home')
-    }else[
-      setErrorMessage('A senha deve conter no mínimo 4 caracteres')
-    ]
+  async function handleEnterPassword() {
+    if(passwordIsConfirmed){
+      if(newPassword.length >= 4){
+        handleSetPassword(newPassword)
+        navigate('Home')
+      }else[
+        setErrorMessage('A senha deve conter no mínimo 4 caracteres')
+      ]
+    }else{
+      if(newPassword == password){
+        setPasswordIsConfirmed(true)
+        setNewPassword('')
+        if(removePassword){
+          handleSetPassword('none')
+          navigate('Home')
+        }
+      }else{
+        setNewPassword('')
+        setErrorMessage('Senha incorreta')
+      }
+    }
   }
+
+  useEffect(() => {
+    if(password == 'none'){
+      setPasswordIsConfirmed(true)
+    }
+  },[])
+
   return (<>
     <Header back/>
     <Container>
-      <Title>Digite sua nova senha</Title>
+      <Title>{passwordIsConfirmed? 'Digite sua nova senha': 'Confirme sua senha'}</Title>
       <Password>
         {isVisible? newPassword: '#'.repeat(newPassword.length)}
       </Password>
@@ -56,7 +86,7 @@ export function ChangePassword() {
           keyExtractor={num => String(num)}
           renderItem={({item}) => (
             <NumberContainer onPress={() => {
-                item == 'go' && handleRegister()
+                item == 'go' && handleEnterPassword()
                 item == 'remove'? setNewPassword(newPassword.slice(0, -1)):
                 item != 'go' && newPassword.length < 36 && setNewPassword(newPassword + item)
                 newPassword.length >= 36 && setErrorMessage('A senha não pode ser tão grande')

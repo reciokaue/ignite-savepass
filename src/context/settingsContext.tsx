@@ -90,7 +90,7 @@ export function PasswordProvider({children}: ProviderProps){
       setPassword(wasPassword)
 
       const themeData = await AsyncStorage.getItem(themeKey)
-      const wasTheme = themeData ? themeData: ''
+      const wasTheme = themeData ? themeData: 'light'
       setTheme(wasTheme)
       
       if(booleanValue && wasPassword == 'none'){

@@ -24,9 +24,9 @@ interface Props{
 export function Settings({loadData}: Props) {
   const [ showAlert, setShowAlert ] = useState(false)
 
-  const { toggleTheme, theme, setIsLogged } = useSettings()
+  const { toggleTheme, theme, password } = useSettings()
   const { colors } = useTheme()
-  const { navigate } = useNavigation<any>()
+  const navigation = useNavigation<any>()
 
   const dataKey = '@savepass:logins';
 
@@ -37,7 +37,12 @@ export function Settings({loadData}: Props) {
   }
   
   function handleNewPassword(){
-    navigate('ChangePassword', {changePassword: 'yes'})
+    navigation.navigate('ChangePassword', {removePassword: false})
+  }
+  function handleRemovePassword(){
+    if(password != 'none'){
+      navigation.navigate('ChangePassword', {removePassword: true})
+    }
   }
 
   async function shareApp(){
@@ -82,9 +87,10 @@ export function Settings({loadData}: Props) {
     <Container>
       <Title>Configurações</Title>
       <SettingRow onPress={shareApp} title='Compartilhar app' iconName='share'/><Separator/>
-      <SettingRow onPress={toggleTheme} title={theme == 'light'? 'Light Mode': 'Dark Mode'} iconName={theme == 'light'? 'sun': 'moon'}/><Separator/>
-      <SettingRow onPress={handleNewPassword} title='Trocar senha' iconName='lock'/><Separator/>
+      <SettingRow onPress={toggleTheme} title={theme == 'dark'? 'Light Mode': 'Dark Mode'} iconName={theme == 'dark'? 'sun': 'moon'}/><Separator/>
       {/* <SettingRow title='Fazer Backup' iconName='server'/><Separator/> */}
+      <SettingRow onPress={handleNewPassword} title='Trocar senha' iconName='lock'/><Separator/>
+      <SettingRow onPress={handleRemovePassword} title='Excluir senha' iconName='trash-2'/><Separator/>
       <SettingRow title='Versão' subtitle='1.3' iconName='git-pull-request'/><Separator/>
       <SettingRow onPress={() => setShowAlert(true)} title='Excluir todas as senhas' iconName='alert-triangle'/>
       {/* <SettingRow title='Sair do app' iconName='x-circle'/> */}

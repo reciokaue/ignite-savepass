@@ -5,7 +5,7 @@ import { RFValue } from 'react-native-responsive-fontsize';
 import { BorderlessButton, RectButton } from 'react-native-gesture-handler';
 
 export const Container = styled(RectButton)`
-  width: 100%;
+  flex: 1;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;

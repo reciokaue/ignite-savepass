@@ -54,8 +54,7 @@ export const NumberText = styled.Text`
 export const ErrorMessage = styled.Text`
   font-size: ${RFValue(12)}px;
   text-align: center;
-  color:  ${({ theme }) => theme.colors.exclude};
-  font-weight: bold;
+  color:  ${({ theme }) => theme.colors.whiteTitle};
   font-family: 'Rubik_400Regular';
 `;
 

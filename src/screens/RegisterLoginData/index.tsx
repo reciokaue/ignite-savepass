@@ -25,7 +25,7 @@ interface FormData {
 
 const schema = Yup.object().shape({
   service_name: Yup.string().required('Nome do serviço é obrigatório!'),
-  email: Yup.string().email('Não é um email válido').required('Email é obrigatório!'),
+  email: Yup.string().required('Email é obrigatório!'),
   password: Yup.string().required('Senha é obrigatória!'),
 })
 
@@ -79,20 +79,16 @@ export function RegisterLoginData() {
               testID="service-name-input"
               placeholder="Nome do serviço"
               name="service_name"
-              error={
-                errors.service_name && errors.service_name.message
-              }
+              error={errors.service_name && errors.service_name.message}
               control={control}
               autoCapitalize="sentences"
               autoCorrect
               />
             <Input editing
               testID="email-input"
-              placeholder="E-mail"
+              placeholder="E-mail, número ou username"
               name="email"
-              error={
-                errors.email && errors.email.message
-              }
+              error={errors.email && errors.email.message}
               control={control}
               autoCorrect={false}
               autoCapitalize="none"
@@ -102,9 +98,7 @@ export function RegisterLoginData() {
               testID="password-input"
               placeholder="Senha"
               name="password"
-              error={
-                errors.password && errors.password.message
-              }
+              error={errors.password && errors.password.message}
               control={control}
               secureTextEntry
               />
