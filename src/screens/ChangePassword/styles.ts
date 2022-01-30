@@ -39,7 +39,9 @@ export const Password = styled.Text`
   color:  ${({ theme }) => theme.colors.whiteTitle};
   text-align: center;
 `;
-export const NumberContainer = styled(BorderlessButton)`
+export const NumberContainer = styled(BorderlessButton).attrs({
+  rippleColor: '#fff'
+})`
   padding: ${RFValue(15)}px;
   margin: ${RFValue(-5)}px ${RFValue(15)}px;
   justify-content: center;
@@ -55,7 +57,7 @@ export const NumberText = styled.Text`
 export const ErrorMessage = styled.Text`
   font-size: ${RFValue(12)}px;
   text-align: center;
-  color:  ${({ theme }) => theme.colors.exclude};
+  color:  ${({ theme }) => theme.colors.whiteTitle};
   font-weight: bold;
   font-family: 'Rubik_400Regular';
 `;

@@ -38,7 +38,9 @@ export const Password = styled.Text`
   color:  ${({ theme }) => theme.colors.whiteTitle};
   text-align: center;
 `;
-export const NumberContainer = styled(BorderlessButton)`
+export const NumberContainer = styled(BorderlessButton).attrs({
+  rippleColor: '#fff'
+})`
   padding: ${RFValue(15)}px;
   margin: ${RFValue(-5)}px ${RFValue(15)}px;
   justify-content: center;

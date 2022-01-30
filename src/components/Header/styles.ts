@@ -12,7 +12,9 @@ export const Container = styled.View`
   padding: ${getStatusBarHeight()}px 0 0;
   z-index: 0;
 `;
-export const Button = styled(BorderlessButton)`
+export const Button = styled(BorderlessButton).attrs({
+  rippleColor: '#fff'
+})`
   align-items: center;
   justify-content: center;
   height: 40px;

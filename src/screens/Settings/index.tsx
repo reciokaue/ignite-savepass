@@ -21,21 +21,24 @@ interface Props{
   loadData?: () => void
 }
 
+const SHARE_MESSAGE = 'App incrivel para salvar suas senhas da forma mais segura! Confira o projeto no github'
+const LINK_URL = 'https://github.com/reciokaue/ignite-savepass'
+
 export function Settings({loadData}: Props) {
   const [ showAlert, setShowAlert ] = useState(false)
 
   const { toggleTheme, theme, password } = useSettings()
   const { colors } = useTheme()
-  const navigation = useNavigation<any>()
 
+  const navigation = useNavigation<any>()
   const dataKey = '@savepass:logins';
+
 
   function handleExcludeAllPasswords(){
     AsyncStorage.removeItem(dataKey)
     setShowAlert(false)
     loadData()
   }
-  
   function handleNewPassword(){
     navigation.navigate('ChangePassword', {removePassword: false})
   }
@@ -47,8 +50,8 @@ export function Settings({loadData}: Props) {
 
   async function shareApp(){
     try {
-      const result = await Share.share({
-        message: 'React Native | A framework for building native apps using React',
+      await Share.share({
+        message: `${SHARE_MESSAGE} ${LINK_URL}`,
       });
     } catch (error) {
       alert(error.message);
