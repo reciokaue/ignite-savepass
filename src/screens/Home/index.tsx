@@ -98,8 +98,9 @@ export function Home() {
 
         <LoginList
           ListHeaderComponent={<><View style={{height: 25}}/>
-            <Button onPress={() => handleOpenModal('strenght')} title='Password Strenght'/>
             <Title>Suas senhas</Title>
+            <Button onPress={() => handleOpenModal('strenght')} title='Gerador de senhas'/>
+            <View style={{height: 25}}/>
           </>}
           keyExtractor={(item) => item.id}
           data={searchListData}
