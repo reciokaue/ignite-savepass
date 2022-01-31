@@ -18,6 +18,7 @@ import {
   LockButton,
 } from './styles';
 import { Settings } from '../Settings';
+import { Button } from '../../components/Form/Button';
 
 interface LoginDataProps {
   id: string;
@@ -93,10 +94,13 @@ export function Home() {
         </LockButton>
 
         <LoginList
+          ListHeaderComponent={<><View style={{height: 25}}/>
+            <Button onPress={() => navigate('PasswordStrenght')} title='Password Strenght'/>
+            <Title>Suas senhas</Title>
+          </>}
           keyExtractor={(item) => item.id}
           data={searchListData}
-          ListHeaderComponent={<Title key="uSDVFBAFKSQAlYcWWRtYl8cxI8QSRvhD">Suas senhas</Title>}
-          ListFooterComponent={<View key="8RAUmWIVYjyWcJ8hqtVuZZLDgrbP05MW" style={{height: 90}}/>}
+          ListFooterComponent={<View style={{height: 90}}/>}
           renderItem={({ item: loginData }) => {
             return <PasswordCard
               item_id={loginData.id}

@@ -11,6 +11,7 @@ import { Home } from '../screens/Home';
 import { PasswordDetail } from '../screens/PasswordDetail';
 import { RegisterLoginData } from '../screens/RegisterLoginData';
 import { ChangePassword } from '../screens/ChangePassword';
+import { PasswordStrenght } from '../screens/PasswordStrenght';
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -32,6 +33,7 @@ export function SavepassRoutes() {
       <Screen name="RegisterLoginData" component={RegisterLoginData} />
       <Screen name="PasswordDetail" component={PasswordDetail} />
       <Screen name="ChangePassword" component={ChangePassword}/>
+      <Screen name="PasswordStrenght" component={PasswordStrenght}/>
     </Navigator>
   );
 }
