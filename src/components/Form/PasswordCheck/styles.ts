@@ -1,11 +1,11 @@
 import styled from 'styled-components/native';
+
 import { TextInput } from 'react-native';
 import { RFValue } from 'react-native-responsive-fontsize';
-import Feather from '@expo/vector-icons/Feather';
 import { BorderlessButton } from 'react-native-gesture-handler';
 
-// import { useTheme } from 'styled-components';
-// const { colors } = useTheme() 
+import Feather from '@expo/vector-icons/Feather';
+
 interface ColorProps{
   color?: string
   active?: boolean
@@ -22,7 +22,6 @@ export const InputContainer = styled.View`
   align-items: center;
   justify-content: space-between;
 
-  /* background: ${({ theme }) => theme.colors.line}; */
   background: ${({ theme }) => theme.colors.shapes};
   border-radius: 5px;
   width: 100%;
@@ -53,9 +52,10 @@ export const TextLine = styled.View`
   justify-content: flex-start;
   flex-direction: row;
   padding: ${RFValue(10)}px 0 0;
+  flex-wrap: wrap;
 `
 export const Text = styled.Text`
- color: ${({ theme }) => theme.colors.title};
+  color: ${({ theme }) => theme.colors.title};
   font-family: 'Rubik_400Regular';
   font-size: ${(RFValue(15))}px;
 `
@@ -75,4 +75,39 @@ export const ProgressBar = styled.View<ColorProps>`
   border-radius: 2px;
   background: ${({ theme, active, color }) => active? color: theme.colors.line};
 `
+export const GenerateContainer = styled.View``
+export const Amount = styled.Text`
+  color: ${({ theme }) => theme.colors.title};
+  font-family: 'Rubik_500Medium';
+  font-size: ${(RFValue(15))}px;
+
+  width: ${(RFValue(40))}px;
+  height: ${(RFValue(40))}px;
+  background: ${({ theme }) => theme.colors.line};
+
+  text-align: center;
+  line-height: ${(RFValue(40))}px;
+  border-radius: 7px;
+
+  margin-right: 15px;
+`
+export const Option = styled.Text<ColorProps>`
+  color: ${({ theme }) => theme.colors.title};
+  font-family: 'Rubik_500Medium';
+  font-size: ${(RFValue(32))}px;
+
+  width: ${(RFValue(70))}px;
+  height: ${(RFValue(70))}px;
+  background: ${({ theme }) => theme.colors.line};
+
+  text-align: center;
+  line-height: ${(RFValue(70))}px;
+  border-radius: 7px;
+
+  border-width: 4px;
+  border-color: ${({ theme, active, color }) => active? color: theme.colors.line};
+`
+
+
+
 

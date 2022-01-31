@@ -6,6 +6,8 @@ export const Container = styled.ScrollView`
   background-color: ${({ theme }) => theme.colors.shapes};
   /* justify-content: flex-end; */
   padding: ${RFValue(35)}px ${RFValue(24)}px;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
 
 `;
 export const Form = styled.View`

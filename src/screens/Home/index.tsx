@@ -19,6 +19,7 @@ import {
 } from './styles';
 import { Settings } from '../Settings';
 import { Button } from '../../components/Form/Button';
+import { PasswordStrenght } from '../PasswordStrenght';
 
 interface LoginDataProps {
   id: string;
@@ -36,9 +37,11 @@ export function Home() {
   const [data, setData] = useState<LoginListDataProps>([]);
   
   const { navigate } = useNavigation();
+  const [currentModalContent, setCurrentModalContent] = useState('');
   const modalizeRef = useRef<Modalize>(null);
 
-  function handleOpenModal() {
+  function handleOpenModal(content: string) {
+    setCurrentModalContent(content)
     modalizeRef.current?.open();
   }
   function handleAddPassword() {
@@ -79,7 +82,7 @@ export function Home() {
 
   return (
     <>
-      <Header passwordCount={searchListData.length} onSettings={handleOpenModal}/>
+      <Header passwordCount={searchListData.length} onSettings={() => handleOpenModal('settings')}/>
       <Container>
         <SearchBar
           placeholder="Qual senha você procura?"
@@ -95,7 +98,7 @@ export function Home() {
 
         <LoginList
           ListHeaderComponent={<><View style={{height: 25}}/>
-            <Button onPress={() => navigate('PasswordStrenght')} title='Password Strenght'/>
+            <Button onPress={() => handleOpenModal('strenght')} title='Password Strenght'/>
             <Title>Suas senhas</Title>
           </>}
           keyExtractor={(item) => item.id}
@@ -113,7 +116,10 @@ export function Home() {
         />
       </Container>
       <Modalize ref={modalizeRef} adjustToContentHeight modalStyle={{borderTopLeftRadius: 22, borderTopRightRadius: 22}}>
-        <Settings loadData={loadData}/>  
+        {currentModalContent == 'settings'? 
+          <Settings loadData={loadData}/>:
+          <PasswordStrenght/>
+        }
       </Modalize>
     </>
   )

@@ -3935,11 +3935,6 @@ data-urls@^1.1.0:
     whatwg-mimetype "^2.2.0"
     whatwg-url "^7.0.0"
 
-date-fns@^2.28.0:
-  version "2.28.0"
-  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.28.0.tgz#9570d656f5fc13143e50c975a3b6bbeb46cd08b2"
-  integrity sha512-8d35hViGYx/QH0icHYCeLmsLmMUheMmTyV9Fcm6gvNwdw31yXXH+O85sOBJ+OLnLQMKZowvpKb6FgMIQjcpvQw==
-
 dayjs@^1.8.15:
   version "1.10.6"
   resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.10.6.tgz#288b2aa82f2d8418a6c9d4df5898c0737ad02a63"
@@ -7795,6 +7790,11 @@ react-native-awesome-alerts@^1.5.2:
   dependencies:
     prop-types "^15.7.2"
 
+react-native-custom-slider@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/react-native-custom-slider/-/react-native-custom-slider-1.0.2.tgz#0e22fdc7a4b4199915503cbad8650f99b96ade64"
+  integrity sha512-mMRodZBKoVyAaVkVAcVfefPztsId8IlGALQPMOFtNi4OSjAEo/lsNfcsYT8b/BUowXLLdOfGzGyeXT4m2kstfw==
+
 react-native-gesture-handler@~1.10.2:
   version "1.10.3"
   resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-1.10.3.tgz#942bbf2963bbf49fa79593600ee9d7b5dab3cfc0"
@@ -9058,6 +9058,11 @@ ts-interface-checker@^0.1.9:
   version "0.1.13"
   resolved "https://registry.yarnpkg.com/ts-interface-checker/-/ts-interface-checker-0.1.13.tgz#784fd3d679722bc103b1b4b8030bcddb5db2a699"
   integrity sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==
+
+ts-password-generator@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/ts-password-generator/-/ts-password-generator-1.0.6.tgz#d921bb77207470ff9e223864b172b7b69188fe4c"
+  integrity sha512-3wYRgfE+h9NaPpfDJrbqIvpMY/ApG9j1gQRqgr2fjiD4gcPNDp7ofmCto+MZIW1g3l+GL2F36P92sWNvgsiJHw==
 
 tunnel-agent@^0.6.0:
   version "0.6.0"
