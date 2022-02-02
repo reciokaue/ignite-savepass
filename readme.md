@@ -67,30 +67,35 @@
 ### About The Project
 # SavePass
 
-O Savepass é um aplicativo para controle de senhas, com design simples e de fácil entendimento e usabilidade, desenvolvido para todas as faixas etárias com intuito de simplificar a vida do usuário e centralizar todas as senhas em um único lugar
+The SavePass is an app to manage your passwords in a safe away, is easy to use focusing on the user experience with visual helps to understand what is happening in the moment.
 
-Desenvolvido com Expo e juntamente ao React Native para desenvolver aos dois sistemas operacionais simultaneamente, e utilizando Typescript em todo o projeto visando a organização e manutenção de código
+Clean design, soft colors, and rounded shapes to be accepted for all age groups, because all need to remember your password, interesting features, dark mode to health your eyes, password generate that can generate very safe passwords for you and customizable and a password list backup (coming soon) further that you can give me constructive criticism or feature suggestions to add to app.
 
-### Learnings
-  * Tratamento de strings e arrays com javascript 
-  * Validação de formulários com Yup 
-  * Gerir formulários com useForm( ), melhora na performance em formulários diminuindo a taxa de vezes em que é atualizada a interface 
-  * Library do AsyncStorage para guardar informações do usuário 
-  * Utilização de Alerts personalizados com o AwesomeAlerts 
-  * Utilização de validação por impressão digital 
+## Development
+
+> The app was developed with react native and the expo framework, it makes the process 
+of building the app easier and fast because I do not need to develop for two platforms (iOS and android), additionally to the expo I used the typescript to help the organization and maintenance of the code
+
+## Learnings
+  * String and array operations
+  * Form validation with Yup 
+  * Form management with Hook “useForm( )”, improve the performance of the forma form, decreasing the refresh rate 
+  * AsyncStorage Library to save the user data and passwords  
+  * Personalized Alerts and Modal Library 
+  * Finger Print password validation
 
 ### New Features
-  * Detalhe da senha 
-  * Opções de editar e excluir a senha 
-  * Telas de apresentação 
-  * Senha pin para o aplicativo 
-  * Melhorias no design e experiencia do usuário 
+  * Password Detail screen 
+  * Delete and exclude password
+  * Welcome screens
+  * Pin and Finger Print password to lock the app
+  * Upgrade the design and user experience
 
 # Figma prototype design
 
 <div align="center" >
   <a href="https://www.figma.com/file/8WbWCVM0LFHsgHRk3nmfbO/Savepass">
-      <img src="./readme_images/Mockup.png" alt="Brief project design" style="object-fit: contain" width="100%">
+      <img src="./readme_images/mockups.png" alt="Brief project design" style="object-fit: contain" width="100%">
   </a>
 </div>
 <a href="https://www.figma.com/file/8WbWCVM0LFHsgHRk3nmfbO/Savepass">click here to go to figma project
