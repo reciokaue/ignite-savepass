@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { StatusBar } from 'react-native';
 
 import {
@@ -9,12 +9,10 @@ import {
 } from '@expo-google-fonts/rubik';
 
 import AppLoading from 'expo-app-loading';
+import FlashMessage from 'react-native-flash-message';
+
 import { PasswordProvider, useSettings } from './src/context/settingsContext';
 import { Routes } from './src/routes';
-
-import { ThemeProvider } from 'styled-components/native';
-import light from './src/styles/light';
-import dark from './src/styles/dark';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -32,6 +30,7 @@ export default function App() {
       <PasswordProvider>
         <StatusBar barStyle="light-content" backgroundColor="transparent" translucent/>
         <Routes/>
+        <FlashMessage position="bottom" floating={true} />
       </PasswordProvider>
   );
 }

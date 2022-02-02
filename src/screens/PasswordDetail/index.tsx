@@ -151,8 +151,7 @@ export function PasswordDetail() {
   })
   return (
     <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={{flex: 1}}>
-      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}><>
           <Header back title='Detalhe da senha' />
           <Container>
             <Form>
@@ -233,8 +232,7 @@ export function PasswordDetail() {
                 confirmButtonTextStyle={styles.textButton}
             />
           </Container>
-        </>
-      </TouchableWithoutFeedback>
+      </></TouchableWithoutFeedback>
     </KeyboardAvoidingView>
   )
 }
