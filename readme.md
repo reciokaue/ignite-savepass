@@ -31,17 +31,16 @@
   </p>
 </div>
 
-
-
-<!-- TABLE OF CONTENTS -->
-<!-- <details> -->
-  <summary>Table of Contents</summary>
+<summary>Table of Contents</summary>
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
       <ul>
-        <li><a href="#built-with">Built With</a></li>
         <li><a href="#figma-prototype-design">Project Design</a></li>
+        <li><a href="#development">Development</a></li>
+        <li><a href="#new-features">Features</a></li>
+        <li><a href="#learnings">Learnings</a></li>
+        <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
     <li>
@@ -49,47 +48,15 @@
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
+        <li><a href="#usage">Usage</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
     <!-- <li><a href="#roadmap">Roadmap</a></li> -->
     <!-- <li><a href="#contributing">Contributing</a></li> -->
     <li><a href="#contact">Contact</a></li>
     <li><a href="#license">License</a></li>
     <!-- <li><a href="#acknowledgments">Acknowledgments</a></li> -->
-  </ol>
-<!-- </details> -->
-
-
-<!-- need english version -->
-
-<!-- ABOUT THE PROJECT -->
-### About The Project
-# SavePass
-
-The SavePass is an app to manage your passwords in a safe away, is easy to use focusing on the user experience with visual helps to understand what is happening in the moment.
-
-Clean design, soft colors, and rounded shapes to be accepted for all age groups, because all need to remember your password, interesting features, dark mode to health your eyes, password generate that can generate very safe passwords for you and customizable and a password list backup (coming soon) further that you can give me constructive criticism or feature suggestions to add to app.
-
-## Development
-
-> The app was developed with react native and the expo framework, it makes the process 
-of building the app easier and fast because I do not need to develop for two platforms (iOS and android), additionally to the expo I used the typescript to help the organization and maintenance of the code
-
-## Learnings
-  * String and array operations
-  * Form validation with Yup 
-  * Form management with Hook “useForm( )”, improve the performance of the forma form, decreasing the refresh rate 
-  * AsyncStorage Library to save the user data and passwords  
-  * Personalized Alerts and Modal Library 
-  * Finger Print password validation
-
-### New Features
-  * Password Detail screen 
-  * Delete and exclude password
-  * Welcome screens
-  * Pin and Finger Print password to lock the app
-  * Upgrade the design and user experience
+</ol>
 
 # Figma prototype design
 
@@ -101,10 +68,35 @@ of building the app easier and fast because I do not need to develop for two pla
 <a href="https://www.figma.com/file/8WbWCVM0LFHsgHRk3nmfbO/Savepass">click here to go to figma project
 </a>
 
----
 
-<p align="right">(<a href="#top">back to top</a>)</p>
 
+### About The Project
+
+# SavePass
+
+The SavePass is an app to manage your passwords in a safe away, is easy to use focusing on the user experience with visual helps to understand what is happening in the moment.
+
+Clean design, soft colors, and rounded shapes to be accepted for all age groups, because all need to remember your password, interesting features, dark mode to health your eyes, password generate that can generate very safe passwords for you and customizable and a password list backup (coming soon) further that you can give me constructive criticism or feature suggestions to add to app.
+
+## Development
+
+> The app was developed with react native and the expo framework, it makes the process 
+of building the app easier and fast because I do not need to develop for two platforms (iOS and android), additionally to the expo I used the typescript to help the organization and maintenance of the code
+
+### New Features
+  * Password Detail screen 
+  * Delete and exclude password
+  * Welcome screens
+  * Pin and Finger Print password to lock the app
+  * Upgrade the design and user experience
+
+## Learnings
+  * String and array operations
+  * Form validation with Yup 
+  * Form management with Hook “useForm( )”, improve the performance of the forma form, decreasing the refresh rate 
+  * AsyncStorage Library to save the user data and passwords  
+  * Personalized Alerts and Modal Library 
+  * Finger Print password validation
 
 ### Built With
 
@@ -113,6 +105,8 @@ of building the app easier and fast because I do not need to develop for two pla
 * [Expo](https://docs.expo.dev)
 * [Javascript](https://reactnative.dev)
 * [Typescript](https://www.typescriptlang.org)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
 # Getting Started
@@ -158,8 +152,6 @@ O botão em cor azul, localizado na parte inferior direita do aplicativo te leva
 Após adicionar suas senhas pode as ver na tela inicial, ao clicar no olho no lado direito dela, tera acesso a senha, caso clique no card inteiro sera levado para a tela de edição de senha
 
 Na tela inicial você pode pesquisar uma das suas senhas adicionadas pelo nome, na caixa te texto localizada na parte superior da tela, após pressionar o botão em formato de seta aparecerão todas as senhas que contem o texto digitado 
-
-<p align="right">(<a href="#top">back to top</a>)</p>
 
 
 
@@ -212,18 +204,6 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-<!-- ACKNOWLEDGMENTS -->
-<!-- ## Acknowledgments
-
-* []()
-* []()
-* []()
-
-<p align="right">(<a href="#top">back to top</a>)</p> -->
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/reciokaue/ignite-savepass.svg?style=for-the-badge
 [contributors-url]: https://github.com/reciokaue/ignite-savepass/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/reciokaue/ignite-savepass.svg?style=for-the-badge
