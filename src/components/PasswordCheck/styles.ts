@@ -2,7 +2,7 @@ import styled from 'styled-components/native';
 
 import { TextInput } from 'react-native';
 import { RFValue } from 'react-native-responsive-fontsize';
-import { BorderlessButton } from 'react-native-gesture-handler';
+import { BorderlessButton, RectButton } from 'react-native-gesture-handler';
 
 import Feather from '@expo/vector-icons/Feather';
 
@@ -28,18 +28,20 @@ export const InputContainer = styled.View`
   
   border-width: 3px;
   border-color: ${({ theme }) => theme.colors.line};
+  max-height: ${RFValue(70)}px;
 `;
 export const Input = styled(TextInput)`
   color: ${({ theme }) => theme.colors.title};
   font-family: 'Rubik_400Regular';
   font-size: ${(RFValue(15))}px;
   flex: 1;
-  padding: ${RFValue(23)}px ${RFValue(16)}px;
+  padding: ${RFValue(23)}px 0 ${RFValue(23)}px ${RFValue(16)}px;
 `;
-export const ToggleShowPassButton = styled(BorderlessButton)`
+export const ToggleShowPassButton = styled(RectButton)`
   align-items: center;
   justify-content: center;
   padding: ${RFValue(18)}px;
+  height: 100%;
 `;
 export const Row = styled.View`
   align-items: center;
@@ -91,23 +93,3 @@ export const Amount = styled.Text`
 
   margin-right: 15px;
 `
-export const Option = styled.Text<ColorProps>`
-  color: ${({ theme }) => theme.colors.title};
-  font-family: 'Rubik_500Medium';
-  font-size: ${(RFValue(32))}px;
-
-  width: ${(RFValue(70))}px;
-  height: ${(RFValue(70))}px;
-  background: ${({ theme }) => theme.colors.line};
-
-  text-align: center;
-  line-height: ${(RFValue(70))}px;
-  border-radius: 7px;
-
-  border-width: 4px;
-  border-color: ${({ theme, active, color }) => active? color: theme.colors.line};
-`
-
-
-
-

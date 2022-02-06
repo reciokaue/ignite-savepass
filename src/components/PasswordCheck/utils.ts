@@ -1,4 +1,11 @@
 
+
+export function hasSymbol(symbols: string){
+  if( symbols.includes('A') || symbols.includes('a') || symbols.includes('1') || symbols.includes('&'))
+    return true
+  else
+    return false
+}
 export function getLevelIcon(strenghtLevel: number){
   let LevelIcon = 
   strenghtLevel == 4 ?'check-circle':

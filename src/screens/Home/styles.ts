@@ -14,7 +14,6 @@ interface LoginListDataProps {
 export const Container = styled.View`
   flex: 1;
   background-color:  ${({ theme }) => theme.colors.background};
-  /* padding: 0 ${RFValue(24)}px; */
 `;
 export const LockButton = styled(RectButton).attrs({
   rippleColor: '#fff',
@@ -40,7 +39,7 @@ export const Title = styled.Text`
   font-size: ${RFValue(20)}px;
   font-family: 'Rubik_500Medium';
   color: ${({ theme }) => theme.colors.title};
-  margin: ${RFValue(24)}px 0;
+  margin-bottom: ${RFValue(24)}px;
 `;
 export const LoginList = styled(FlatList as new () => FlatList<LoginListDataProps>).attrs({
   showsVerticalScrollIndicator: false,

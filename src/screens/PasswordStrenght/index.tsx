@@ -1,9 +1,9 @@
-import React, { useState,  } from 'react';
+import React, { useState } from 'react';
 
 import {
   Container,
 } from './styles';
-import { PasswordCheck } from '../../components/Form/PasswordCheck';
+import { PasswordCheck } from '../../components/PasswordCheck';
 
 
 export function PasswordStrenght() {
