@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
 import { Clipboard } from 'react-native';
 
 import Slider from 'react-native-custom-slider';
 import zxcvbn from 'zxcvbn';
-// var generator = require('generate-password-browser');
 import { generator } from 'ts-password-generator';
 
 import {
@@ -20,12 +19,13 @@ import {
   BoldText,
   GenerateContainer,
   Amount,
-  Option,
 } from './styles';
 
 import { useTheme } from 'styled-components';
-import { getLevelIcon, getLevelMessage, getTimeFormated, getColor } from './utils'
-import { Button } from '../Button';
+import { getLevelIcon, getLevelMessage, getTimeFormated, getColor, hasSymbol } from './utils'
+import { Button } from '../Form/Button';
+import { OptionButton } from '../OptionButton';
+import { useFocusEffect } from '@react-navigation/native';
 
 interface Props {
   title: string
@@ -40,11 +40,7 @@ export function PasswordCheck({
   const [ secondsToHack, setSecondsToHack ] = useState(0)
 
   const [ sliderValue, setSliderValue ] = useState(12)
-
-  const [ numbers, setNumbers ] = useState(false)
-  const [ uppercase, setUppercase ] = useState(false)
-  const [ lowercase, setLowercase ] = useState(true)
-  const [ symbols, setSymbols ] = useState(false)
+  const [ symbolsSelected, setSymbolsSelected ] = useState('0000')
 
   const { colors } = useTheme()
 
@@ -71,23 +67,38 @@ export function PasswordCheck({
     setSecondsToHack(data.crack_times_seconds.offline_fast_hashing_1e10_per_second)
   }
   function generatePassword(){
-    if( !uppercase && !numbers && !lowercase && !symbols){
+    if(hasSymbol(symbolsSelected)){
+      const password = generator({
+        charsQty: sliderValue,
+        isUppercase: symbolsSelected.includes('A'),
+        haveString: symbolsSelected.includes('a'),
+        haveNumbers: symbolsSelected.includes('1'),
+        haveSymbols: symbolsSelected.includes('&'),
+      })
+      setText(password)
+      testPassword(password)
+    }else{
       setStatusColor('#EBEBF0')
       setStrenghtLevel(0)
       setSecondsToHack(0)
       setText('')
-    }else{
-      const password = generator({
-        charsQty: sliderValue, isUppercase: uppercase, haveNumbers: numbers, haveString: lowercase, haveSymbols: symbols
-      })
-      setText(password)
-      testPassword(password)
     }
   }
 
+  function handleToggleSymbols(symbol: string){
+    if(symbolsSelected.includes(symbol)){
+      setSymbolsSelected(symbolsSelected.replace(symbol, '0'))
+    }else{
+      setSymbolsSelected(symbolsSelected.replace('0', symbol))
+    }
+  }
+
+  // useFocusEffect(useCallback(() => {
+  //   generatePassword();
+  // }, [symbolsSelected]));
   useEffect(() => {
     generatePassword()
-  },[sliderValue, uppercase, numbers, lowercase, symbols])
+  },[symbolsSelected])
 
   return (
     <>
@@ -119,7 +130,7 @@ export function PasswordCheck({
             value={sliderValue}step={1}
             minimumValue={0} maximumValue={50}
             onValueChange={setSliderValue}
-            // onSlidingComplete={setSliderValue}
+            onSlidingComplete={generatePassword}
 
             thumbTintColor={statusColor}
             minimumTrackTintColor={statusColor}
@@ -132,10 +143,10 @@ export function PasswordCheck({
         </TextLine>
         <Text/>
         <Row>
-          <Option active={numbers} onPress={() => { setNumbers(!numbers);}} color={statusColor}>1</Option>
-          <Option active={uppercase} onPress={() => setUppercase(!uppercase)} color={statusColor}>A</Option>
-          <Option active={lowercase} onPress={() => setLowercase(!lowercase)} color={statusColor}>a</Option>
-          <Option active={symbols} onPress={() => setSymbols(!symbols)} color={statusColor}>{'&'}</Option>
+          <OptionButton title='1' onPress={handleToggleSymbols} color={statusColor}/>
+          <OptionButton title='A' onPress={handleToggleSymbols} color={statusColor}/>
+          <OptionButton title='a' onPress={handleToggleSymbols} color={statusColor}/>
+          <OptionButton title='&' onPress={handleToggleSymbols} color={statusColor}/>
         </Row>
         <Text/>
         <Button onPress={generatePassword} title='Generate'/>
